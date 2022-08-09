@@ -20,7 +20,7 @@ function listaDeFilmes() {
           </li>
         </ul>
         <Button>
-          <Link href="/reviews/novareview"> Adicionar Review</Link>
+          <Link href="/reviews/addreview"> Adicionar Review</Link>
         </Button>
       </div>
     </>
