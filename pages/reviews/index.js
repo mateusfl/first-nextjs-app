@@ -1,22 +1,27 @@
-import NavBar from '../../components/NavBar'
+import { Button } from 'flowbite-react'
 import Link from 'next/link'
+import NavBar from '../../components/NavBar'
+import ReviewCard from '../../components/ReviewCard'
 
 function listaDeFilmes() {
   return (
     <>
       <NavBar></NavBar>
-      <div>
-        <ul>
+      <div className="flex flex-col items-center gap-5 mt-8">
+        <ul className="flex flex-col gap-3">
           <li>
-            <Link href="./reviews/filme1"> filme 1</Link>
+            <ReviewCard reviewId="1"></ReviewCard>
           </li>
           <li>
-            <Link href="./reviews/filme2"> filme 2</Link>
+            <ReviewCard reviewId="2"></ReviewCard>
           </li>
           <li>
-            <Link href="./reviews/filme3"> filme 3</Link>
+            <ReviewCard reviewId="3"></ReviewCard>
           </li>
         </ul>
+        <Button>
+          <Link href="/reviews/novareview"> Adicionar Review</Link>
+        </Button>
       </div>
     </>
   )

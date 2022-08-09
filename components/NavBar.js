@@ -1,3 +1,5 @@
+import { Button } from 'flowbite-react'
+
 function NavBar() {
   return (
     <>
@@ -9,7 +11,7 @@ function NavBar() {
             </span>
           </a>
           <div
-            className="flex justify-between items-center gap-6 w-full md:flex md:w-auto md:order-1"
+            className="flex justify-between items-center gap-3 w-full md:flex md:w-auto md:order-1"
             id="navbar-cta"
           >
             <a
@@ -18,13 +20,7 @@ function NavBar() {
             >
               Página Inicial
             </a>
-
-            <button
-              type="button"
-              className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Log in
-            </button>
+            <Button>Log In</Button>
           </div>
         </div>
       </nav>
