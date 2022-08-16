@@ -1,25 +1,41 @@
-import { Button } from 'flowbite-react'
+import { Button } from "flowbite-react"
+import Link from "next/link"
 
 function NavBar() {
   return (
     <>
       <nav className="bg-gray-200 shadow-md px-2 sm:px-4 py-2.5 dark:bg-gray-900">
         <div className=" container flex flex-wrap justify-between items-center mx-auto">
-          <a href="" className="flex items-center">
+          <div className="flex items-center gap-5">
+            <Link href="./">
+              <div className="cursor-pointer">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+              </div>
+            </Link>
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               🎥 Review De Filmes
             </span>
-          </a>
+          </div>
           <div
-            className="flex justify-between items-center gap-3 w-full md:flex md:w-auto md:order-1"
+            className="flex justify-center items-center gap-3 w-fit md:flex md:w-auto md:order-1"
             id="navbar-cta"
           >
-            <a
-              href="/"
-              className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-            >
+            <Link href="/" className="block py-2 pr-4 pl-3 ">
               Página Inicial
-            </a>
+            </Link>
             <Button>Log In</Button>
           </div>
         </div>

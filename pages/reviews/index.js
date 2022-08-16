@@ -1,26 +1,35 @@
-import { Button } from 'flowbite-react'
-import Link from 'next/link'
-import NavBar from '../../components/NavBar'
-import ReviewCard from '../../components/ReviewCard'
+import { Button } from "flowbite-react"
+import Link from "next/link"
+import ReviewList from "../../components/ReviewList"
 
 function listaDeFilmes() {
+  const lista = [
+    {
+      id: "review01",
+      image: "https://picsum.photos/150",
+      title: "titulo review 01",
+      content: "lorem ipsum",
+    },
+    {
+      id: "review02",
+      image: "https://picsum.photos/150",
+      title: "titulo review 02",
+      content: "lorem ipsum",
+    },
+    {
+      id: "review03",
+      image: "https://picsum.photos/150",
+      title: "titulo review 03",
+      content: "lorem ipsum",
+    },
+  ]
   return (
     <>
-      <NavBar></NavBar>
       <div className="flex flex-col items-center gap-5 mt-8">
-        <ul className="flex flex-col gap-3">
-          <li>
-            <ReviewCard reviewId="1"></ReviewCard>
-          </li>
-          <li>
-            <ReviewCard reviewId="2"></ReviewCard>
-          </li>
-          <li>
-            <ReviewCard reviewId="3"></ReviewCard>
-          </li>
-        </ul>
+        <ReviewList reviews={lista} />
+
         <Button>
-          <Link href="/reviews/addreview"> Adicionar Review</Link>
+          <Link href="/reviews/add-review"> Adicionar Review</Link>
         </Button>
       </div>
     </>
