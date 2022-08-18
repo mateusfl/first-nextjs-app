@@ -1,0 +1,7 @@
+query GetReviewById {
+  review(where: { id: "${id}" }) {
+    image
+    title
+    content
+  }
+}

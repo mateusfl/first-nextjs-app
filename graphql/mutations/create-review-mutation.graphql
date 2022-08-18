@@ -1,0 +1,5 @@
+mutation CreateReview($title: String!, $image: String!, $content: String!) {
+  createReview(data: { title: $title, content: $content, image: $image }) {
+    id
+  }
+}

@@ -12,14 +12,18 @@ function Home() {
             alt="imagem"
           />
           <p className="text-xl text-center font-semibold my-2">Usuario1</p>
-          <p className="text-ellipsis">Lorem ipsum dolor</p>
+          {/* <p className="text-ellipsis">Lorem ipsum dolor</p> */}
         </div>
         <div className="flex flex-col justify-center gap-4">
           <Link href="/reviews">
-            <Button>Reviews Feitas</Button>
+            <a>
+              <Button>Reviews Feitas</Button>
+            </a>
           </Link>
           <Link href="/lista">
-            <Button>Lista de Filmes</Button>
+            <a>
+              <Button>Lista de Filmes</Button>
+            </a>
           </Link>
         </div>
       </div>

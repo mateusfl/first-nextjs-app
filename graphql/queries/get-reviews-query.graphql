@@ -1,0 +1,8 @@
+query GetReviews {
+  reviews {
+    id
+    image
+    title
+    content
+  }
+}
