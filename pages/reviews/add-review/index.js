@@ -1,28 +1,34 @@
 import NewReviewForm from "../../../components/review/NewReviewForm"
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client"
+import { gql, useMutation } from "@apollo/client"
+
+const useCreateReview = gql`
+  mutation CreateReview($title: String!, $image: String!, $content: String!) {
+    createReview(data: { title: $title, content: $content, image: $image }) {
+      id
+    }
+  }
+`
 
 function addreview() {
-  const client = new ApolloClient({
-    uri: "https://api-sa-east-1.hygraph.com/v2/cl6z3pgy501ed01urbi5jggg5/master",
-    cache: new InMemoryCache(),
-  })
+  const [createReview] = useMutation(gql`
+    mutation CreateReview($title: String!, $image: String!, $content: String!) {
+      createReview(data: { title: $title, content: $content, image: $image }) {
+        id
+      }
+    }
+  `)
   async function onAddReview(props) {
-    const { data } = await client.mutate({
-      mutation: gql`
-        mutation CreateReview(
-          $title: String!
-          $image: String!
-          $content: String!
-        ) {
-          createReview(
-            data: { title: $title, content: $content, image: $image }
-          ) {
-            id
-          }
-        }
-      `,
+    await createReview({
+      variables: {
+        title: props.title,
+        image: props.image,
+        content: props.content,
+      },
     })
-    console.log(data)
+
+    //mutation para publicar a review
+
+    console.log(useCreateReview)
   }
 
   return (

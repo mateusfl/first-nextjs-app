@@ -11,26 +11,26 @@ export async function getStaticPaths() {
     query: gql`
       query MyQuery {
         reviews {
-          id
+          slug
         }
       }
     `,
   })
-
   const paths = data.reviews.map((review) => ({
-    params: { reviewId: review.id },
+    params: { reviewslug: review.slug },
   }))
   return { paths, fallback: false }
 }
 
 export async function getStaticProps(context) {
-  const id = context.params.reviewId
+  const slug = context.params.reviewslug
   const { data } = await client.query({
     query: gql`
-      query GetReviewbyId{
-        review(where: { id: "${id}" }) {
+      query GetReviewbyslug{
+        review(where: { slug: "${slug}" }) {
           image
           title
+          slug
           content
         }
       }
@@ -49,6 +49,7 @@ function review(props) {
       <ReviewDetails
         image={props.reviews.image}
         title={props.reviews.title}
+        slug={props.reviews.slug}
         content={props.reviews.content}
       />
     </>

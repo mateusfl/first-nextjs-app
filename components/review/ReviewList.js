@@ -10,6 +10,7 @@ function ReviewList(props) {
               key={review.id}
               id={review.id}
               title={review.title}
+              slug={review.slug}
               image={review.image}
               content={review.content}
             />

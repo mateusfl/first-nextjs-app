@@ -30,11 +30,15 @@ export async function getStaticProps() {
           id
           image
           title
+          slug
           content
+          stage
         }
       }
     `,
   })
+  //usar os dados dessa lista de reviews
+  //pra verificar se cada uma foi publicada ou não
   return {
     props: {
       reviews: data.reviews,

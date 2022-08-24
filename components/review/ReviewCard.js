@@ -5,7 +5,7 @@ function ReviewCard(props) {
   return (
     <>
       <div className="flex justify-center items-center gap-4 flex-col sm:flex-row">
-        <Link href={`reviews/${props.id}`}>
+        <Link href={`reviews/${props.slug}`}>
           <div className="flex min-w-fit w-8 items-center cursor-pointer bg-white rounded-lg border shadow-md  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
             <img
               className="object-cover max-w-[100px] h-[120px] rounded-l-lg "
@@ -22,10 +22,6 @@ function ReviewCard(props) {
             </div>
           </div>
         </Link>
-        <div className="flex  gap-2 items-center sm:flex-col">
-          <Button>editar</Button>
-          <Button color="failure">apagar</Button>
-        </div>
       </div>
     </>
   )
