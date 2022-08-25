@@ -1,4 +1,3 @@
-import NavBar from "../components/layout/NavBar"
 import "../styles/globals.css"
 import { ApolloProvider } from "@apollo/client"
 
@@ -12,7 +11,6 @@ export const client = new ApolloClient({
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <NavBar></NavBar>
       <ApolloProvider client={client}>
         <Component {...pageProps} />
       </ApolloProvider>

@@ -1,23 +1,9 @@
-import { Label, TextInput, Button, Textarea } from "flowbite-react"
-import { useRef } from "react"
-import Link from "next/link"
+import { Label, TextInput, Button, Textarea } from 'flowbite-react'
+import { useRef } from 'react'
+import slugify from 'slugify'
+import Link from 'next/link'
 
 function NewReviewForm(props) {
-  /*   function submitHandler(event) {
-    event.preventDefault()
-
-    const inputTitle = event.target.title.value
-    const inputImage = event.target.image.value
-    const inputContent = event.target.review.value
-
-    const reviewData = {
-      title: inputTitle,
-      image: inputImage,
-      content: inputContent,
-    }
-    props.onAddReview(reviewData)
-  } */
-
   const titleRef = useRef()
   const imageRef = useRef()
   const contentRef = useRef()
@@ -26,11 +12,13 @@ function NewReviewForm(props) {
     event.preventDefault()
 
     const inputTitle = titleRef.current.value
+    const slug = slugify(inputTitle)
     const inputImage = imageRef.current.value
     const inputContent = contentRef.current.value
 
     const reviewData = {
       title: inputTitle,
+      slug: slug,
       image: inputImage,
       content: inputContent,
     }

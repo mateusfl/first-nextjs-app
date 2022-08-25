@@ -1,5 +1,5 @@
-import { Button } from "flowbite-react"
-import Link from "next/link"
+import { Button } from 'flowbite-react'
+import Link from 'next/link'
 
 function ReviewDetails(props) {
   return (
@@ -20,7 +20,9 @@ function ReviewDetails(props) {
           <Link href={`${props.slug}/edit`}>
             <Button>editar</Button>
           </Link>
-          <Button color="failure">apagar</Button>
+          <Link href={`${props.slug}/delete`}>
+            <Button color="failure">apagar</Button>
+          </Link>
         </div>
       </div>
     </>

@@ -1,8 +1,9 @@
-import ReviewDetails from "../../../components/review/ReviewDetails"
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client"
+import NavBar from '../../../components/layout/NavBar'
+import ReviewDetails from '../../../components/review/ReviewDetails'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 
 const client = new ApolloClient({
-  uri: "https://api-sa-east-1.hygraph.com/v2/cl6z3pgy501ed01urbi5jggg5/master",
+  uri: 'https://api-sa-east-1.hygraph.com/v2/cl6z3pgy501ed01urbi5jggg5/master',
   cache: new InMemoryCache(),
 })
 
@@ -38,7 +39,7 @@ export async function getStaticProps(context) {
   })
   return {
     props: {
-      reviews: data.review,
+      review: data.review,
     },
   }
 }
@@ -46,11 +47,12 @@ export async function getStaticProps(context) {
 function review(props) {
   return (
     <>
+      <NavBar></NavBar>
       <ReviewDetails
-        image={props.reviews.image}
-        title={props.reviews.title}
-        slug={props.reviews.slug}
-        content={props.reviews.content}
+        image={props.review.image}
+        title={props.review.title}
+        slug={props.review.slug}
+        content={props.review.content}
       />
     </>
   )

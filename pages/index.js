@@ -1,9 +1,11 @@
-import { Button } from "flowbite-react"
-import Link from "next/link"
+import NavBar from '../components/layout/NavBar'
+import { Button } from 'flowbite-react'
+import Link from 'next/link'
 
 function Home() {
   return (
     <>
+      <NavBar></NavBar>
       <div className="flex justify-center gap-14 mt-24 w-full h-48 ">
         <div className="flex flex-col justify-evenly items-center  w-40">
           <img

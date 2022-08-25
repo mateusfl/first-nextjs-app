@@ -1,25 +1,15 @@
-import { Button } from "flowbite-react"
-import Link from "next/link"
+import { Button } from 'flowbite-react'
+import Link from 'next/link'
 
-function NavBar() {
-  let isHomePage = false
-
-  if (typeof window !== "undefined") {
-    if (window.location.pathname == "/") {
-      isHomePage = true
-    }
-  }
+function NavBar(props) {
+  let isDynamic = props.isDynamic
 
   return (
     <>
       <nav className="bg-gray-200 shadow-md px-2 w-full sm:px-4 py-2.5 dark:bg-gray-900">
         <div className=" container flex flex-wrap justify-around items-center mx-auto">
-          <div
-            className={`flex items-center gap-5 ${
-              isHomePage ? "invisible" : ""
-            }`}
-          >
-            <Link href=".">
+          <div className={`flex items-center gap-5`}>
+            <Link href={isDynamic ? `../${props.reviewslug}` : '.'}>
               <div className="cursor-pointer">
                 <svg
                   className="w-6 h-6"
