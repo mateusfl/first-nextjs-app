@@ -8,7 +8,7 @@ function ReviewDetails(props) {
         <div>
           <img
             className="rounded-lg w-[150px] h-[150px] sm:w-[300px] sm:h-[300px]"
-            src={props.image}
+            src={props.image.url}
             alt=""
           />
         </div>

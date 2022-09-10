@@ -5,17 +5,21 @@ import Router from 'next/router'
 
 function addreview() {
   const [createReview] = useMutation(gql`
-    mutation CreateReview(
-      $title: String!
+    mutation AddReview(
       $slug: String!
-      $image: String!
+      $title: String!
       $content: String!
+      $fileName: String
+      $handle: String
     ) {
       createReview(
-        data: { title: $title, slug: $slug, content: $content, image: $image }
-      ) {
-        id
-      }
+        data: {
+          title: $title
+          slug: $slug
+          content: $content
+          image: { create: { fileName: $fileName, handle: $handle } }
+        }
+      )
     }
   `)
   async function onAddReview(props) {

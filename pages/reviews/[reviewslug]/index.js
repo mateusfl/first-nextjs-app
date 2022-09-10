@@ -29,7 +29,7 @@ export async function getStaticProps(context) {
     query: gql`
       query GetReviewbyslug{
         review(where: { slug: "${slug}" }) {
-          image
+          image{url}
           title
           slug
           content
@@ -45,6 +45,7 @@ export async function getStaticProps(context) {
 }
 
 function review(props) {
+  console.log(props.review.image)
   return (
     <>
       <NavBar></NavBar>

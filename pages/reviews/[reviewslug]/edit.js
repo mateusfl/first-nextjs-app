@@ -7,6 +7,10 @@ const client = new ApolloClient({
   uri: 'https://api-sa-east-1.hygraph.com/v2/cl6z3pgy501ed01urbi5jggg5/master',
   cache: new InMemoryCache(),
 })
+const clientUpload = new ApolloClient({
+  uri: 'https://api-sa-east-1.hygraph.com/v2/cl6z3pgy501ed01urbi5jggg5/master/upload',
+  cache: new InMemoryCache(),
+})
 
 export async function getStaticPaths() {
   const { data } = await client.query({
@@ -30,7 +34,7 @@ export async function getStaticProps(context) {
     query: gql`
       query GetReviewbyslug{
         review(where: { slug: "${slug}" }) {
-          image
+          image{url}
           title
           slug
           content
@@ -49,22 +53,20 @@ export async function getStaticProps(context) {
 function editreview(props) {
   let currentSlug = props.review.slug
 
-  const [UpdateReview] = useMutation(gql`
-    mutation EditReview(
-      $title: String!
-      $slug: String!
-      $slug1: String!
-      $content: String!
-      $image: String!
-    ) {
-      updateReview(
-        data: { title: $title, slug: $slug, content: $content, image: $image }
-        where: { slug: $slug1 }
+  const [UpdateReview] = useMutation(
+    gql`
+      mutation EditReview(
+        $slug: String!
+        $title: String!
+        $content: String!
+        $image: AssetCreateOneInlineInput = {}
       ) {
-        slug
+        createReview(
+          data: { title: $title, slug: $slug, content: $content, image: $image }
+        )
       }
-    }
-  `)
+    `
+  )
 
   async function onEditReview(props) {
     const res = await UpdateReview({
@@ -79,6 +81,8 @@ function editreview(props) {
     if (res) {
       Router.push('..')
       console.log('editado')
+    } else {
+      console.log('Erro')
     }
   }
 

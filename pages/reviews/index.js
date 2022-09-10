@@ -28,12 +28,12 @@ export async function getStaticProps() {
     query: gql`
       query MyQuery {
         reviews {
-          id
-          image
+          image {
+            url
+          }
           title
           slug
           content
-          stage
         }
       }
     `,

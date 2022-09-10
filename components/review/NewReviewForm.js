@@ -1,4 +1,4 @@
-import { Label, TextInput, Button, Textarea } from 'flowbite-react'
+import { Label, TextInput, Button, Textarea, FileInput } from 'flowbite-react'
 import { useRef } from 'react'
 import slugify from 'slugify'
 import Link from 'next/link'
@@ -13,9 +13,9 @@ function NewReviewForm(props) {
 
     const inputTitle = titleRef.current.value
     const slug = slugify(inputTitle)
-    const inputImage = imageRef.current.value
+    const inputImage = imageRef.current.files[0]
     const inputContent = contentRef.current.value
-
+    
     const reviewData = {
       title: inputTitle,
       slug: slug,
@@ -36,27 +36,33 @@ function NewReviewForm(props) {
         >
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="title" value="Título Do Filme" />
+              <Label htmlFor="title" value="Título" />
             </div>
             <TextInput
               id="title"
               type="text"
-              placeholder="Insira o título do filme"
+              placeholder="Insira o título da review"
               required={true}
               ref={titleRef}
             />
           </div>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="image" value="Link Para Imagem Do Filme" />
+              <Label htmlFor="image" value="Imagem" />
             </div>
-            <TextInput
+            <FileInput
+              // color={imageRef ? 'warning' : 'success'}
+              accept=".png, .jpg"
+              id="image"
+              ref={imageRef}
+            />
+            {/* <TextInput
               id="image"
               type="text"
               placeholder="Insira o link para a imagem do filme"
               required={true}
               ref={imageRef}
-            />
+            /> */}
           </div>
           <div>
             <div className="mb-2 block">

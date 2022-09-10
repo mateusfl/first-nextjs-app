@@ -1,5 +1,5 @@
-import { Button } from "flowbite-react"
-import Link from "next/link"
+import { Button } from 'flowbite-react'
+import Link from 'next/link'
 
 function ReviewCard(props) {
   return (
@@ -9,7 +9,7 @@ function ReviewCard(props) {
           <div className="flex min-w-fit w-8 items-center cursor-pointer bg-white rounded-lg border shadow-md  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
             <img
               className="object-cover max-w-[100px] h-[120px] rounded-l-lg "
-              src={props.image}
+              src={props.image.url}
               alt=""
             ></img>
             <div className="flex flex-col w-60 justify-between p-4 leading-normal">

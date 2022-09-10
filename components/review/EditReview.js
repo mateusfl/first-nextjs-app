@@ -1,4 +1,4 @@
-import { Label, TextInput, Button, Textarea } from 'flowbite-react'
+import { Label, TextInput, Button, Textarea, FileInput } from 'flowbite-react'
 import { useRef } from 'react'
 import Link from 'next/link'
 import slugify from 'slugify'
@@ -12,7 +12,7 @@ export function EditReview(props) {
     event.preventDefault()
 
     const inputTitle = titleRef.current.value
-    const inputImage = imageRef.current.value
+    const inputImage = imageRef.current.files
     const inputContent = contentRef.current.value
 
     const EditedReviewData = {
@@ -50,13 +50,20 @@ export function EditReview(props) {
               <div className="mb-2 block">
                 <Label htmlFor="image" value="Link Para Imagem Do Filme" />
               </div>
-              <TextInput
+              <FileInput
+                defaultValue="teste"
+                accept=".png, .jpg"
+                id="image"
+                ref={imageRef}
+              />
+
+              {/* <TextInput
                 id="image"
                 type="text"
                 defaultValue={props.image}
                 required={true}
                 ref={imageRef}
-              />
+              /> */}
             </div>
             <div>
               <div className="mb-2 block">
